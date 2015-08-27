@@ -1,0 +1,14 @@
+@import 'variables';
+
+body, html{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body{
+	padding-top: 15px;
+	@media #{$break-computer}{
+		padding-top: 50px;
+	}
+}

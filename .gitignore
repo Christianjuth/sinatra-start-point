@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.bundle
+
+.sass-cache
+public/css
+public/js
+public/bower
+
+db/database.db
