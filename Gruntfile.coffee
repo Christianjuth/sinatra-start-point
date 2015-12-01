@@ -30,5 +30,5 @@ module.exports = (grunt)->
   });
 
   # Default task(s).
-  grunt.registerTask("default", ["sass", "coffee"])
-  grunt.registerTask("develop", ["sass", "coffee", "watch"])
+  grunt.registerTask("default", ["sass", "coffee", "watch"])
+  grunt.registerTask("once", ["sass", "coffee"])
