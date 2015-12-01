@@ -2,35 +2,38 @@
 
 ### Setup environment
 Requirements
-* [Ruby v2 and Rubygems](https://rvm.io/) _(recomment via RVM)_
+* [Ruby v2 and Rubygems](https://rvm.io/) _(via RVM recommended)_
 * [Bundler](http://bundler.io/)
 * [NodeJS & NPM](https://nodejs.org/en/)
 * [GruntJS](http://gruntjs.com)
 * [Bower](http://bower.io/)
 
 ```shell
-  # Install node modules and gems
+  # install node modules and gems
   npm install
 ```
 _This command runs `bundle install` so you do not have to run that yourslef._
 
 ### Running Sinatra
 ```shell
-  # This command starts shotgun on port 3000
+  # this command starts shotgun on port 3000
   npm start
+  
+  # this command force stops shotgun
+  npm stop
 ```
 
 ### Compiling
 ```shell
-  # Compile once
+  # compile once
   grunt once
 
-  # Continious compiling
+  # continious compiling
   grunt
 ```
 
 ### Testing
 ```
-  # Test using mocha
+  # test using mocha
   npm test
 ```
