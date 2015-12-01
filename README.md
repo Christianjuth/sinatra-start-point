@@ -23,6 +23,12 @@ _This command runs `bundle install` so you do not have to run that yourslef._
   npm stop
 ```
 
+### Database
+```shell
+  # migrate database
+  npm run migrate
+```
+
 ### Compiling
 ```shell
   # compile once
