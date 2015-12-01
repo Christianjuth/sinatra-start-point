@@ -2,35 +2,10 @@
 require "./config/environment"
 
 # Require models
-# require "./app/models/"
+require "./app/models/user"
 
 # Set routs
 class ApplicationController < Sinatra::Base
-  configure do
-    set :public_folder, "public"
-    set :views, "app/views"
-    enable :sessions
-    # Set the session secret
-    set :session_secret, "secret"
-  end
-
-  # This function will redirect the user
-  # to the login screen (if enabled) when the 
-  # session[:user_id] is nil else it will 
-  # pass @user as the current user into the
-  # requested view
-  before do
-    # Force the user to login before using the app
-    force_login_page = false
-    # Check the session and database for current user
-    if (!session[:user_id] || !User.exists?(session[:user_id])) && !["/login","/signup"].include?(request.path)
-      session.destroy
-      redirect "/login" if force_login_page
-    elsif !["/login","/signup"].include?(request.path)
-      @user = User.find(session[:user_id])
-    end
-  end
-
   # This routs the home page to the template
   get "/" do
     erb :index
@@ -45,7 +20,6 @@ class ApplicationController < Sinatra::Base
     user = User.new({
       username: params[:username],
       email:    params[:email],
-      hashed_password: params[:password],
     })
     if user.save
       session[:user_id] = user.id
@@ -107,7 +81,34 @@ class ApplicationController < Sinatra::Base
   end
 
 
-  # -- Helpers --
+  # ----- Config ------
+  configure do
+    set :public_folder, "public"
+    set :views, "app/views"
+    enable :sessions
+    # Set the session secret
+    set :session_secret, "secret"
+  end
+
+  # This function will redirect the user
+  # to the login screen (if enabled) when the 
+  # session[:user_id] is nil else it will 
+  # pass @user as the current user into the
+  # requested view
+  before do
+    # Force the user to login before using the app
+    force_login_page = false
+    # Check the session and database for current user
+    if (!session[:user_id] || !User.exists?(session[:user_id])) && !["/login","/signup"].include?(request.path)
+      session.destroy
+      redirect "/login" if force_login_page
+    elsif !["/login","/signup"].include?(request.path)
+      @user = User.find(session[:user_id])
+    end
+  end
+
+
+  # ----- Helpers -----
 
   # This function takes a class instance and gets
   # it's validation errors parsing them as a string
