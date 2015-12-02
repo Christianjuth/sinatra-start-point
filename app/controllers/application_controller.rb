@@ -92,7 +92,16 @@ class ApplicationController < Sinatra::Base
 
   post "/logout" do
     session.destroy
-    redirect "/login"
+    case request_type?
+    when :ajax
+      body({
+        success: true, 
+        message: "success",
+        redirect: "/login"
+      }.to_json)
+    else 
+      redirect "/login"
+    end
   end
 
 
@@ -112,9 +121,10 @@ class ApplicationController < Sinatra::Base
   # requested view
   before do
     # Force the user to login before using the app
-    force_login_page = false
+    force_login_page = true
+    exceptions = ["/login","/signup"]
     # Check the session and database for current user
-    if (!session[:user_id] || !User.exists?(session[:user_id])) && !["/login","/signup"].include?(request.path)
+    if (!session[:user_id] || !User.exists?(session[:user_id])) && !exceptions.include?(request.path)
       session.destroy
       redirect "/login" if force_login_page
     elsif !["/login","/signup"].include?(request.path)
