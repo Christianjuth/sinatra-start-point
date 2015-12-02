@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
 
 
   # -- Functions --
+  before_save do |record|
+    record.username.downcase!
+    record.email.downcase!
+  end
 
   # Use this function to destroy table rows
   # belonging to the user before the user is

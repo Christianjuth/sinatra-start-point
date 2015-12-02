@@ -17,9 +17,15 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/signup" do
+    # hash password
+    password_salt = BCrypt::Engine.generate_salt
+    password_hash = BCrypt::Engine.hash_secret(params[:password], password_salt)
+    # create user
     user = User.new({
       username: params[:username],
       email:    params[:email],
+      hash_salt: password_salt,
+      hashed_password: password_hash
     })
     if user.save
       session[:user_id] = user.id
@@ -53,8 +59,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/login" do
-    @user = User.find_by({username: params[:username]})
-    if @user
+    # check if user exsists
+    if User.find_by({username: params[:username]})
+      @user = User.find_by({username: params[:username]})
+    end
+    # check password and set session
+    if @user && @user.hashed_password == BCrypt::Engine.hash_secret(params[:password], @user.hash_salt)
       session[:user_id] = @user.id
       case request_type?
       when :ajax
@@ -78,6 +88,11 @@ class ApplicationController < Sinatra::Base
         redirect "/login"
       end
     end
+  end
+
+  post "/logout" do
+    session.destroy
+    redirect "/login"
   end
 
 
