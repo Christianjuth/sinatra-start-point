@@ -33,15 +33,15 @@ describe("User visits signup page", function() {
 		// fill out form
 	  before(function(done) {
 	    browser
-	      .fill("username", "johndoe")
-	      .fill("email", "johndoe@gmail.com")
+	      .fill("username", "johnsmith")
+	      .fill("email", "johnsmith@gmail.com")
 	      .fill("password", "password")
 	      .fill("repeat_password", "password")
 	      .pressButton("Signup", done);
 	  });
-	  // check form responce
-	  it("should be successfull", function() {
-	    browser.assert.success();
+
+	  it("user already exsists", function() {
+	  	browser.assert.element(".sweet-alert.showSweetAlert")
 	  });
 	});
 });
@@ -64,7 +64,7 @@ describe("User visits login page", function() {
 	  });
 	  // check form responce
 	  it("should be successfull", function() {
-	    browser.assert.success();
+	    browser.assert.url("/");
 	  });
 	});
 });

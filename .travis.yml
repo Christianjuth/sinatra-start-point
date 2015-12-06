@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - 4.0.0
+before_install:
+  - rvm install 2.0.0
+install:
+  - npm install -g grunt-cli
+  - npm install
+before_script:
+  - bundle exec rake db:migrate
+  - bundle exec rake db:setup
+script:
+  - npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: J5mW8EkdFRLWYOI8n1v+k5pYCAElTv2so2AGq+fnBBkxIKqVxC5AwFBpfVDYHzSehmegqMyeMGtDcvfOn6A6MPBiH6tOAJWIMuliRcCwGISIQjEFm+kdVtFLJihWUkGm2bRWv6M6jqi5zqXCS+RPIHTtQd/xEcMg0IY6X2iVZWEMy2DwL1emiXnZZMwmpFxTj+7tcUy4vrZqIkAf1SgRdeRoXes76XB0GY1Vx1VmODcTpdAj9wRCLwpzi8tKMWSrqsessulWMqGZ99/Jqbb47wcuDIoHVovJF9rLFQkLn3aw1uPphMEEljLNhxEflNLUSWrP+JkvnTy/5MhKuRGrG7zblDutj2og/COG8TWE4o/aBOA5NoKqgV2V3Ra3L5+l6gcAgDkj7wAJpJwhFEZGyrMZCu+GzvbfNnFXQxT7AMd12PzcJjaiQlPmrfm+miR5xE1QxhQ8HxsDpyYFA+sGiA9HXva24LbXmKZnOvlks3vS4kOIY5H0KEuYq2pM4knHW2lCbvzqL9KtXUpZtI5hkFHJPSdLTB4CR3KxzQ8GWVi03qS8ghfurgP+w8tFeh8aqEoJ2PIp0eZbOKpxzCexRL09KTh7U5m34aDkW9ddgft9sdA+1P1ldhGtoYE5qrYezqmFe2Vb4HRNRvcMAaoJudySa8++moj4EWkB8X4G00A=
+  app: sinatra-startpoint
+  run: "rake db:migrate"
+  on:
+    repo: Christianjuth/sinatra-startpoint

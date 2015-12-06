@@ -1,7 +1,7 @@
 {
   "name": "Sinatra",
   "version": "0.1.0",
-  "description": "Sinatra template",
+  "description": "Sinatra startpoint",
   "main": "index.js",
   "scripts": {
     "postinstall": "bundle install && grunt once",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Christianjuth/sinatra-template.git"
+    "url": "https://github.com/Christianjuth/sinatra-startpoint.git"
   },
   "author": "Christian Juth",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Christianjuth/sinatra-template/issues"
+    "url": "https://github.com/Christianjuth/sinatra-startpoint/issues"
   },
-  "homepage": "https://github.com/Christianjuth/sinatra-template",
+  "homepage": "https://github.com/Christianjuth/sinatra-startpoint",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-coffee": "^0.13.0",

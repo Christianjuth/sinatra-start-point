@@ -17,16 +17,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/signup" do
-    # hash password
-    password_salt = BCrypt::Engine.generate_salt
-    password_hash = BCrypt::Engine.hash_secret(params[:password], password_salt)
     # create user
     user = User.new({
       username: params[:username],
       email:    params[:email],
-      hash_salt: password_salt,
-      hashed_password: password_hash
     })
+    user.password = params[:password]
     if user.save
       session[:user_id] = user.id
       case request_type?
@@ -64,7 +60,7 @@ class ApplicationController < Sinatra::Base
       @user = User.find_by({username: params[:username]})
     end
     # check password and set session
-    if @user && @user.hashed_password == BCrypt::Engine.hash_secret(params[:password], @user.hash_salt)
+    if @user && @user.password(params[:password])
       session[:user_id] = @user.id
       case request_type?
       when :ajax
