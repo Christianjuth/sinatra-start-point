@@ -19,6 +19,17 @@ class User < ActiveRecord::Base
     message: "email is not valid" }
 
 
+  def password=(password)
+    self.hash_salt = BCrypt::Engine.generate_salt
+    self.hashed_password = BCrypt::Engine.hash_secret(password, self.hash_salt)
+    self.save
+  end
+
+  def password(password)
+    self.hashed_password == BCrypt::Engine.hash_secret(password, self.hash_salt)
+  end
+
+
   # -- Functions --
   before_save do |record|
     record.username.downcase!
