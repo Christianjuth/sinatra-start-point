@@ -1,16 +1,16 @@
 language: node_js
 node_js:
-  - 4.0.0
+  - 2.0.0
 before_install:
   - rvm install 2.0.0
 install:
   - npm install -g grunt-cli
+  - npm install -g bower
   - npm install
 before_script:
   - bundle exec rake db:migrate
   - bundle exec rake db:setup
 script:
-  - apt-get install wget && wget -O - 0.0.0.0:3000
   - npm test
 deploy:
   provider: heroku
