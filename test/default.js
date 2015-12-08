@@ -58,7 +58,7 @@ describe("User visits login page", function() {
 		// fill out form
 	  before(function(done) {
 	    browser
-	      .fill("username", "johndoe")
+	      .fill("username", "johnsmith")
 	      .fill("password", "password")
 	      .pressButton("Login", done);
 	  });

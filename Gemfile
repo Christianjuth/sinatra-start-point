@@ -6,9 +6,13 @@ gem "sinatra-activerecord"
 gem "rake"
 gem "bcrypt"
 gem "json"
-gem "pg"
 
-group :development do
+
+group :production do
+  gem "pg"
+end
+
+group :development, :test do
   gem "shotgun"
   gem "pry", "0.9.12.6"
   gem "tux"
