@@ -1,4 +1,4 @@
-# Sinatra
+# Sinatra Startpoint [![Build Status](https://travis-ci.org/Christianjuth/sinatra-startpoint.svg?branch=master)](https://travis-ci.org/Christianjuth/sinatra-startpoint)
 
 ### Setup environment
 Requirements
@@ -18,7 +18,7 @@ _This command runs `bundle install` so you do not have to run that yourslef._
 ```shell
   # this command starts shotgun on port 3000
   npm start
-  
+
   # this command force stops shotgun
   npm stop
 ```
