@@ -8,15 +8,21 @@ gem "rake"
 gem "bcrypt"
 gem "json"
 
-
-group :production do
-  gem "pg"
-end
-
 group :development, :test do
   gem "shotgun"
-  gem "pry", "0.9.12.6"
+  gem "pry"
   gem "tux"
   gem "sqlite3"
   gem "sass"
+end
+
+group :test do
+  gem "cucumber"
+  gem "capybara", require: "capybara/cucumber"
+  gem "test-unit", require: "test/unit/assertions"
+  gem "database_cleaner"
+end
+
+group :production do
+  gem "pg"
 end

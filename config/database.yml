@@ -7,6 +7,6 @@ development:
 test:
   development:
   adapter: sqlite3
-  database: db/database.db
+  database: db/test-database.db
   pool: 5
   timeout: 5000
