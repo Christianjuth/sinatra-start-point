@@ -19,7 +19,7 @@ end
 group :test do
   gem "cucumber"
   gem "capybara", require: "capybara/cucumber"
-  gem "test-unit", require: "test/unit/assertions"
+  gem "minitest", require: "minitest/spec"
   gem "database_cleaner"
 end
 
