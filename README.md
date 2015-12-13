@@ -1,4 +1,4 @@
-# Sinatra Startpoint [![Build Status](https://travis-ci.org/Christianjuth/sinatra-startpoint.svg?branch=master)](https://travis-ci.org/Christianjuth/sinatra-startpoint)
+# Sinatra Startpoint [![Build Status](https://travis-ci.org/Christianjuth/sinatra-startpoint.svg?branch=master)](https://travis-ci.org/Christianjuth/sinatra-startpoint) [![Stories in Ready](https://badge.waffle.io/Christianjuth/sinatra-startpoint.svg?label=ready&title=Issues)](http://waffle.io/Christianjuth/sinatra-startpoint)
 
 ### Setup environment
 Requirements
