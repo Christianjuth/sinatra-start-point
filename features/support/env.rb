@@ -14,5 +14,10 @@ end
  
 World do
   MinitestWorld.new
+  headless = Headless.new
+  headless.start
+  at_exit do
+    headless.destroy
+  end
   Capybara.app = ApplicationController
 end

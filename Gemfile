@@ -21,6 +21,8 @@ group :test do
   gem "capybara", require: "capybara/cucumber"
   gem "minitest", require: "minitest/spec"
   gem "database_cleaner"
+  gem "watir-webdriver"
+  gem "headless"
 end
 
 group :production do
