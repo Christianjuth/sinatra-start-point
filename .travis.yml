@@ -1,14 +1,17 @@
 language: node_js
+sudo: required
 node_js:
-- 5.0.0
+  - 5.0.0
 before_install:
-- rvm install 2.2.1
+  - rvm install 2.2.1
+  - sudo apt-get update
+  - sudo apt-get install libqt4-dev qt4-qmake
 install:
-- npm install -g grunt-cli
-- npm install -g bower
-- npm install
+  - npm install -g grunt-cli
+  - npm install -g bower
+  - npm install
 script:
-- npm test
+  - npm test
 deploy:
   provider: heroku
   api_key:

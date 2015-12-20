@@ -20,16 +20,3 @@ Scenario: create row in table
     | password | password              |
   Then table "users" has record
     | username | johnsmith |
-
-@fails
-Scenario: visite page
-  Given on page "/signup"
-  When button "Login" on page
-  Then click button "Login" on page
-
-Scenario: login
-  Given on page "/login"
-  When button "Login" on page
-  Then fill input "username" with "johnsmith"
-  Then fill input "password" with "password"
-  Then click button "Login" on page

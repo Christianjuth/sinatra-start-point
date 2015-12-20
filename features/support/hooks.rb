@@ -7,25 +7,23 @@ Before("@fails") do
 end
 
 Before do
+  Capybara.current_driver = :webkit
   def assert_cucumber(params)
     begin 
       assersion = params[:assersion].call
     rescue
       assersion = false
     end  
-    if assersion.is_a?(TrueClass) || assersion.is_a?(FalseClass) 
-      pass = [true, false].include?(assersion) ? assersion != @fails : assersion.nil?
-    else
-      pass = true
+    pass = [true, false].include?(assersion) ? assersion != @fails : true
+    error = @fails ? "succeeded #{params[:error]}" : params[:error]
+    # check assersion
+    if pass == false
+      screenshot_and_save_page
     end
-    assert(pass, params[:error])
+    assert(pass, error)
   end
 end
 
-After do
-  unless @browser.nil?
-    @browser.close
-    @browser = nil
-  end
+After do |scenario|
   DatabaseCleaner.clean
 end

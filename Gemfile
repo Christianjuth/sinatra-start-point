@@ -19,10 +19,10 @@ end
 group :test do
   gem "cucumber"
   gem "capybara", require: "capybara/cucumber"
+  gem "capybara-screenshot", require: "capybara-screenshot/cucumber"
+  gem "capybara-webkit"
   gem "minitest", require: "minitest/spec"
   gem "database_cleaner"
-  gem "watir-webdriver"
-  gem "headless"
 end
 
 group :production do

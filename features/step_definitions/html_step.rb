@@ -1,23 +1,18 @@
 Given /^on page "([^']*)"$/ do |url|
-  if @browser.nil?
-    @browser = Watir::Browser.start "localhost:3000"
-  else
-    @browser.reset!
-  end
-  @browser.goto("localhost:3000#{url}")
+  visit url
 end
 
 # ----------- search page ------------
 Then /^text "([^']*)" on page$/ do |text|
   assert_cucumber({
-    assersion: lambda{ @browser.text.include?(text) },
+    assersion: lambda{ page.has_content?(text) },
     error: "could not find text"
   })
 end
 
-Then /^button "([^']*)" on page$/ do |name|
+Then /^button "([^']*)" on page$/ do |text|
   assert_cucumber({
-    assersion: lambda{ @browser.button({value: name}).exists? },
+    assersion: lambda{ page.has_css?("button", text: text) },
     error: "could not find button"
   })
 end
@@ -25,14 +20,14 @@ end
 # ----------- page action -------------
 Then /^fill input "([^']*)" with "([^']*)"$/ do |name, value|
   assert_cucumber({
-    assersion: lambda{ @browser.text_field({name: name}).set(value) },
+    assersion: lambda{ page.fill_in(name, with: value) },
     error: "could not find input"
   })
 end
 
 Then /^click button "([^']*)" on page$/ do |name|
   assert_cucumber({
-    assersion: lambda{ @browser.button({value: name}).click },
+    assersion: lambda{ page.click_button(name) },
     error: "could not find button"
   })
 end
