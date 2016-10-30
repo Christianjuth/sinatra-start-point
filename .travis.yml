@@ -1,21 +1,21 @@
 language: node_js
 sudo: required
 node_js:
-  - 5.0.0
+- 5.0.0
 before_install:
-  - rvm install 2.2.1
-  - sudo apt-get update
-  - sudo apt-get install libqt4-dev qt4-qmake
+- rvm install 2.2.1
+- sudo apt-get update
+- sudo apt-get install libqt4-dev qt4-qmake
 install:
-  - npm install -g grunt-cli
-  - npm install -g bower
-  - npm install
+- npm install -g grunt-cli
+- npm install -g bower
+- npm install
 script:
-  - npm test
+- npm test
 deploy:
   provider: heroku
   api_key:
-    secure: cxuMUkvv1GwnLKWGeE6LT3iGWYphYDaTxEAo4+6rPaJBVbECeRw1cKmri0WfYnCdmtjM5ikBnVXJsD0nmcVEfVhaiAwtYcFlNSRZEU89eVKJ4dBL/cNc5pS5xfhqhaMjvQ7yfoY7paOwup9ZtHqz2TnJJUSwDWixvfiKilmChVY7iK7TczvwAIGMfZao4n/1cGyLbsSo3pv8jbshICFNpBdza+34RunrFvpkLlIu2+3w5HDAj4G7hMjGam9P3G82K76rjolUuJGZy3QCSijKnUpvbK2tdiQHHTYjKifLRDmmIm5zeIwOdLpjX9w9EAcnuuWFQ7KZRXXo1rfZ52DBiRK7K93SDrQ/dM/QfZTkuhbUYgZ87di1m0HoFQLyJ3vPDQ0l91ZOn8ZS9o0WNbzheCNlO3eScs/+ZP/4/aVNMFVDqwDceyvuMap13h1+LkNEIekgbf9ps8EOsvNspguLG/hm5gyqtHn38Xq2Bkwk6ISx49U1726EZxd3I4rrZXdVUy1BputFdud1N+FZT29e+Oonp1IXCeV/9Hju5lpPKXNsHZcZxqKYjs0sXgjgCsL4laNaqoT1GQK4aEQo6aHPNm3+Utu1f0PQF812Jw0bOUTfyh71KLdAA7sDSZEEbi1nLDfxbwWL+Ze9NRxo8y9ZCzp3kYt0OKyKIyXHfkdpOsM=
+    secure: aVfAu+uqUwzKsjVpH08eiDiokR6q3C9Ud3xZdMAn2niSlll9ZlBLai7EbvFqaZgcEEWsk8mySraxQofmxsNHkoJI2Zj2tWbpjzVN4+TwG1Pjk+o3cB/rn3Zzk1yztVbSxIbEY0ref7Mtc0hX0PhDzTqmjfErkISUe0Kup5qqzCUfZ3H5a63Vn8HpgEsxmuTOfM95wYtYRc0FZcAFcTAT8BWGu+Oq/ERrP6iMSj6dI4kBC5vCgnc7e86Hp0lQukSbUbis9l+r6QMkw5PAn/jTgFl4h2mvWUj3xlpkt70KvJPxhfO0dsA3PmbCN9sIFh8CfWIgRhrMvhfKR3j5S4rB5WMZ/0TRCaAvoPWXlGBgL5Xf/WSnigAFp7Ho3hpRnfmgXib5fH/x/HQ1PlUwVcQfhprUheI3aqq046epmcs/jGQJhG9x1I1vLKYSqwfam0/2fD2juhVtXbox+ap6gDpkTKSwgLTqVAEuipR0kpmnqA969IvqYsk9s59KhqDz9SFL70Rh+mixoOhqBg4vLgxvWxahfYTjVcxO/zR6G5kRtU47ZX4pRQmDG0aA3agjfllhjQ8vFOQceWEmi2flvi9wHbMPNvd3sMpcKqNkEuqFp1i4DM65McH4dgJjgXOgcDXC48HME4/YYtYs53HwwkkzC/boaFxvH/4Ap9U9El+t0nw=
   app: sinatra-startpoint
   skip_cleanup: true
   run: rake db:migrate
