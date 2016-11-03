@@ -7,7 +7,7 @@ gem "sinatra-activerecord"
 gem "rake"
 gem "bcrypt"
 gem "json"
-gem "pg"
+
 
 group :development, :test do
   gem "shotgun"
@@ -24,4 +24,8 @@ group :test do
   gem "capybara-webkit"
   gem "minitest", require: "minitest/spec"
   gem "database_cleaner"
+end
+
+group :production do
+  gem "pg"
 end
