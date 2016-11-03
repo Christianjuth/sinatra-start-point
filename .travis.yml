@@ -13,8 +13,6 @@ install:
 script:
 - npm test
 before_deploy:
-- bundle config --global without development:test
-- tail .bundle/config
 - rm -rf .bundle/
 deploy:
   provider: heroku
@@ -23,6 +21,6 @@ deploy:
     secure: aVfAu+uqUwzKsjVpH08eiDiokR6q3C9Ud3xZdMAn2niSlll9ZlBLai7EbvFqaZgcEEWsk8mySraxQofmxsNHkoJI2Zj2tWbpjzVN4+TwG1Pjk+o3cB/rn3Zzk1yztVbSxIbEY0ref7Mtc0hX0PhDzTqmjfErkISUe0Kup5qqzCUfZ3H5a63Vn8HpgEsxmuTOfM95wYtYRc0FZcAFcTAT8BWGu+Oq/ERrP6iMSj6dI4kBC5vCgnc7e86Hp0lQukSbUbis9l+r6QMkw5PAn/jTgFl4h2mvWUj3xlpkt70KvJPxhfO0dsA3PmbCN9sIFh8CfWIgRhrMvhfKR3j5S4rB5WMZ/0TRCaAvoPWXlGBgL5Xf/WSnigAFp7Ho3hpRnfmgXib5fH/x/HQ1PlUwVcQfhprUheI3aqq046epmcs/jGQJhG9x1I1vLKYSqwfam0/2fD2juhVtXbox+ap6gDpkTKSwgLTqVAEuipR0kpmnqA969IvqYsk9s59KhqDz9SFL70Rh+mixoOhqBg4vLgxvWxahfYTjVcxO/zR6G5kRtU47ZX4pRQmDG0aA3agjfllhjQ8vFOQceWEmi2flvi9wHbMPNvd3sMpcKqNkEuqFp1i4DM65McH4dgJjgXOgcDXC48HME4/YYtYs53HwwkkzC/boaFxvH/4Ap9U9El+t0nw=
   app: sinatra-startpoint
   skip_cleanup: true
-  run: tail .bundle/config && rake db:migrate
+  run: rake db:migrate
   on:
     repo: Christianjuth/sinatra-startpoint
