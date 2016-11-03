@@ -15,6 +15,7 @@ script:
 before_deploy:
 - bundle config --global without development:test
 - tail .bundle/config
+- rm -rf .bundle/
 deploy:
   provider: heroku
   buildpack: ruby
