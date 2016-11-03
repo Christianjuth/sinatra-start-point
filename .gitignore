@@ -1,6 +1,7 @@
 node_modules
 npm-debug.log
-.bundle/
+.bundle
+.bundle/config
 
 db/*.db
 screenshots/
