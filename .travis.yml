@@ -12,6 +12,8 @@ install:
 - npm install
 script:
 - npm test
+before_deploy:
+- bundle config without development:test
 deploy:
   provider: heroku
   buildpack: ruby
