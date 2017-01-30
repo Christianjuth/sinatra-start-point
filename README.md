@@ -1,5 +1,8 @@
 # Sinatra Start Point [![Build Status](https://travis-ci.org/Christianjuth/sinatra-startpoint.svg?branch=master)](https://travis-ci.org/Christianjuth/sinatra-startpoint) [![Stories in Ready](https://badge.waffle.io/Christianjuth/sinatra-startpoint.svg?label=ready&title=Issues)](http://waffle.io/Christianjuth/sinatra-startpoint)
 
+### Important!
+This project is not currently being maintained - please reference [this repository](https://github.com/Christianjuth/Portfolio) for the up to date project.
+
 ### Setup environment
 Requirements
 * [Ruby v2 and Rubygems](https://rvm.io/) _(via RVM recommended)_
